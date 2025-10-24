@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Ismail ismail.merced3@gmail.com"]
 license = "Apache-2.0"
 description = "A tool to search files"
+readme = "README.md"
 homepage = "https://github.com/msi404/grrs"
 repository = "https://github.com/msi404/grrs"
 keywords = ["cli", "search", "demo"]
