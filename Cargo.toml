@@ -1,6 +1,6 @@
 [package]
 name = "grrs3"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Ismail ismail.merced3@gmail.com"]
 license = "Apache-2.0"
 description = "A tool to search files"
