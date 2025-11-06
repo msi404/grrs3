@@ -1,23 +1,18 @@
-use anyhow::{Context, Result};
-use clap::Parser;
+use std::env;
+use std::process;
 
-/// يمكنك البحث داخل ملف عن طريق ادخال النص
-#[derive(Parser)]
-struct Cli {
-    /// ادخل النمط المراد البحث عنه
-    pattern: String,
-    /// ادخل المسار المراد البحث فيه
-    path: std::path::PathBuf,
-}
+use grrs3::Config;
 
-fn main() -> Result<()> {
-    let args = Cli::parse();
-    let content = std::fs::read_to_string(&args.path)
-        .with_context(|| format!("لا يمكن قراءة الملف {}", args.path.display()))?;
-    for line in content.lines() {
-        if line.contains(&args.pattern) {
-            println!("{}", line);
-        }
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
+
+    if let Err(e) = grrs3::run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
     }
-    Ok(())
 }

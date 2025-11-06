@@ -1,6 +1,6 @@
 [package]
 name = "grrs3"
-version = "0.3.0"
+version = "1.0.0"
 authors = ["Ismail ismail.merced3@gmail.com"]
 license = "Apache-2.0"
 description = "A tool to search files"
@@ -12,5 +12,3 @@ categories = ["command-line-utilities"]
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.100"
-clap = { version = "4.5.50", features = ["derive"] }
